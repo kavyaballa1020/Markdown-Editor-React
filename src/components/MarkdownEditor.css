@@ -69,7 +69,6 @@ footer p {
   padding: 20px;
   overflow-y: auto;
   background-color: var(--color-tertiary);
-  text-align: left;
 }
 
 /* Preview pane */
@@ -78,7 +77,7 @@ footer p {
   padding: 20px;
   overflow-y: auto;
   background-color: var(--color-background);
-  text-align: right;
+  border-left: 1px solid var(--color-accent); /* Add a border for separation */
 }
 
 /* Divider between editor and preview */
@@ -111,7 +110,7 @@ button {
   margin-top: 10px;
   padding: 10px 20px;
   font-size: 16px;
-  background:linear-gradient(to top,rgb(0, 76, 255),rgb(146, 151, 248));
+  background: linear-gradient(to top, rgb(0, 76, 255), rgb(146, 151, 248));
   color: #fff;
   border: none;
   border-radius: 10px;
@@ -150,32 +149,40 @@ button:hover {
 }
 
 /* Markdown preview styles */
-.preview-pane h1,
-.preview-pane h2,
-.preview-pane h3,
-.preview-pane h4,
-.preview-pane h5,
-.preview-pane h6 {
-  text-align: right; /* Align headings to the right in preview pane */
-  margin-top: 1.5em;
-  margin-bottom: 0.5em;
+
+.preview-pane {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 16px;
+  line-height: 1.6;
+  padding: 20px; /* Add padding for better spacing */
+  border-left: 1px solid var(--color-accent); /* Add a border for separation */
+}
+
+.preview-pane p {
+  margin-bottom: 1em;
+}
+
+.preview-pane a {
   color: var(--color-primary);
+  text-decoration: none;
+  transition: color 0.3s ease;
 }
 
-.preview-pane pre {
-  background-color: var(--color-tertiary);
-  padding: 10px;
-  border-radius: 4px;
-  overflow-x: auto;
-  color: var(--color-text);
-  box-shadow: 0 2px 4px rgb(0, 0, 0);
+.preview-pane a:hover {
+  color: var(--color-secondary);
 }
 
-.preview-pane code {
-  background-color: var(--color-accent);
-  padding: 2px 4px;
+.preview-pane img {
+  max-width: 100%;
+  height: auto;
+  margin: 1em 0;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   border-radius: 4px;
-  color: var(--color-text);
+}
+
+.preview-pane ul,
+.preview-pane ol {
+  padding-left: 20px;
 }
 
 .preview-pane blockquote {
@@ -186,14 +193,10 @@ button:hover {
   color: var(--color-text);
 }
 
-.preview-pane ul,
-.preview-pane ol {
-  padding-left: 20px;
-}
-
 .preview-pane table {
   width: 100%;
   border-collapse: collapse;
+  margin-bottom: 1em;
 }
 
 .preview-pane th,
@@ -210,4 +213,32 @@ button:hover {
 
 .preview-pane td {
   background-color: var(--color-tertiary);
+}
+
+.preview-pane pre {
+  background-color: var(--color-tertiary);
+  padding: 10px;
+  border-radius: 4px;
+  overflow-x: auto;
+  color: var(--color-text);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.preview-pane code {
+  background-color: var(--color-accent);
+  padding: 2px 4px;
+  border-radius: 4px;
+  color: var(--color-text);
+}
+
+.preview-pane h1,
+.preview-pane h2,
+.preview-pane h3,
+.preview-pane h4,
+.preview-pane h5,
+.preview-pane h6 {
+  font-weight: bold;
+  margin-top: 1.5em;
+  margin-bottom: 0.5em;
+  color: var(--color-primary);
 }
