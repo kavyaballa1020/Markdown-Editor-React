@@ -1,0 +1,32 @@
+/* src/MarkdownEditor.css */
+.markdown-editor {
+    display: flex;
+    height: 100vh;
+  }
+  
+  .editor-pane, .preview-pane {
+    flex: 1;
+    padding: 20px;
+  }
+  
+  textarea {
+    width: 100%;
+    height: calc(100vh - 100px);
+    padding: 10px;
+    font-size: 16px;
+  }
+  
+  .dropzone {
+    border: 2px dashed #ccc;
+    padding: 20px;
+    text-align: center;
+    margin-top: 20px;
+  }
+  
+  button {
+    margin-top: 10px;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+  }
+  
