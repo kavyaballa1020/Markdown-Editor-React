@@ -1,9 +1,9 @@
+// src/MarkdownEditor.js
 import React, { useState } from 'react';
 import ReactMarkdown from 'react-markdown';
 import { Light as SyntaxHighlighter } from 'react-syntax-highlighter';
 import { docco } from 'react-syntax-highlighter/dist/esm/styles/hljs';
 import Dropzone from 'react-dropzone';
-import { FaFileExport, FaFileImport } from 'react-icons/fa';
 import './MarkdownEditor.css'; // Add some basic styling
 
 const MarkdownEditor = () => {
@@ -32,30 +32,28 @@ const MarkdownEditor = () => {
 
   return (
     <div className="markdown-editor">
-      <header className="header">
+      <header>
         <h1>Markdown Editor</h1>
+        <p>Edit and preview your Markdown content.</p>
       </header>
-      <div className="content">
+      <div className="editor-container">
         <div className="editor-pane">
           <textarea
             value={markdown}
             onChange={handleMarkdownChange}
             placeholder="Enter markdown here..."
           />
-          <div className="buttons">
-            <button onClick={handleExport}>
-              <FaFileExport /> Export
-            </button>
-            <Dropzone onDrop={handleDrop}>
-              {({getRootProps, getInputProps}) => (
-                <div {...getRootProps()} className="dropzone">
-                  <input {...getInputProps()} />
-                  <p><FaFileImport /> Drag & drop a markdown file here, or click to select a file</p>
-                </div>
-              )}
-            </Dropzone>
-          </div>
+          <button onClick={handleExport}>Export</button>
+          <Dropzone onDrop={handleDrop}>
+            {({getRootProps, getInputProps}) => (
+              <div {...getRootProps()} className="dropzone">
+                <input {...getInputProps()} />
+                <p>Drag & drop a markdown file here, or click to select a file</p>
+              </div>
+            )}
+          </Dropzone>
         </div>
+        <div className="divider" />
         <div className="preview-pane">
           <ReactMarkdown
             children={markdown}
@@ -81,8 +79,8 @@ const MarkdownEditor = () => {
           />
         </div>
       </div>
-      <footer className="footer">
-        <p>Markdown Editor © 2024</p>
+      <footer>
+        <p>Markdown Editor by Kavya Balla. &copy; 2024</p>
       </footer>
     </div>
   );

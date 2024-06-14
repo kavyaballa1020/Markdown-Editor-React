@@ -64,12 +64,17 @@ footer p {
 
 .editor-pane {
   background-color: var(--color-tertiary);
-  border-right: 1px solid var(--color-accent);
 }
 
 .preview-pane {
   background-color: var(--color-background);
 }
+
+.divider {
+  width: 2px;
+  background-color: var(--color-accent);
+}
+
 textarea {
   width: 100%;
   height: calc(100vh - 210px);
@@ -110,18 +115,19 @@ button:hover {
 .dropzone {
   border: 2px dashed var(--color-accent);
   padding: 20px;
+  border-color: var(--color-primary);
   text-align: center;
   margin-top: 20px;
   border-radius: 4px;
-  background-color: var(--color-tertiary);
   cursor: pointer;
+  background-color: var(--color-accent);
   transition: background-color 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 .dropzone:hover {
-  background-color: var(--color-accent);
-  border-color: var(--color-primary);
+  background-color: var(--color-tertiary);
+  border-color: var(--color-accent);
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
@@ -143,7 +149,7 @@ button:hover {
   border-radius: 4px;
   overflow-x: auto;
   color: var(--color-text);
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 2px 4px rgb(0, 0, 0);
 }
 
 .preview-pane code {
