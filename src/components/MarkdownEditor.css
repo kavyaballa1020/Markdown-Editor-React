@@ -1,25 +1,65 @@
 /* src/MarkdownEditor.css */
 
 :root {
-  --color-primary: #007bff;
-  --color-secondary: #0056b3;
+  --color-primary: #4a90e2;
+  --color-secondary: #357ab7;
   --color-tertiary: #f5f5f5;
   --color-accent: #e0e0e0;
   --color-text: #333;
   --color-background: #fff;
 }
 
-.markdown-editor {
-  display: flex;
-  height: 100vh;
+* {
+  box-sizing: border-box;
+}
+
+body, html {
+  margin: 0;
+  padding: 0;
   font-family: 'Roboto', sans-serif;
   background-color: var(--color-background);
+  color: var(--color-text);
+}
+
+.markdown-editor {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+}
+
+header, footer {
+  text-align: center;
+  padding: 20px;
+  background-color: var(--color-primary);
+  color: #fff;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+header h1 {
+  margin: 0;
+  font-size: 2em;
+}
+
+header p {
+  margin: 5px 0 0;
+  font-size: 1em;
+}
+
+footer p {
+  margin: 0;
+  font-size: 0.9em;
+}
+
+.editor-container {
+  display: flex;
+  flex: 1;
+  overflow: hidden;
 }
 
 .editor-pane, .preview-pane {
   flex: 1;
   padding: 20px;
-  box-sizing: border-box;
+  overflow-y: auto;
 }
 
 .editor-pane {
@@ -29,12 +69,10 @@
 
 .preview-pane {
   background-color: var(--color-background);
-  padding: 40px;
 }
-
 textarea {
   width: 100%;
-  height: calc(100vh - 150px);
+  height: calc(100vh - 210px);
   padding: 10px;
   font-size: 16px;
   border: 1px solid var(--color-accent);
@@ -42,6 +80,13 @@ textarea {
   resize: none;
   background-color: var(--color-tertiary);
   color: var(--color-text);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  transition: box-shadow 0.3s ease;
+}
+
+textarea:focus {
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  outline: none;
 }
 
 button {
@@ -53,11 +98,13 @@ button {
   border: none;
   border-radius: 4px;
   cursor: pointer;
-  transition: background-color 0.3s ease;
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 button:hover {
   background-color: var(--color-secondary);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
 .dropzone {
@@ -68,11 +115,14 @@ button:hover {
   border-radius: 4px;
   background-color: var(--color-tertiary);
   cursor: pointer;
-  transition: background-color 0.3s ease;
+  transition: background-color 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 .dropzone:hover {
   background-color: var(--color-accent);
+  border-color: var(--color-primary);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
 .dropzone p {
@@ -93,4 +143,44 @@ button:hover {
   border-radius: 4px;
   overflow-x: auto;
   color: var(--color-text);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.preview-pane code {
+  background-color: var(--color-accent);
+  padding: 2px 4px;
+  border-radius: 4px;
+  color: var(--color-text);
+}
+
+.preview-pane blockquote {
+  margin: 1em 0;
+  padding: 10px 20px;
+  border-left: 5px solid var(--color-primary);
+  background-color: var(--color-tertiary);
+  color: var(--color-text);
+}
+
+.preview-pane ul, .preview-pane ol {
+  padding-left: 20px;
+}
+
+.preview-pane table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.preview-pane th, .preview-pane td {
+  padding: 10px;
+  border: 1px solid var(--color-accent);
+  text-align: left;
+}
+
+.preview-pane th {
+  background-color: var(--color-primary);
+  color: #fff;
+}
+
+.preview-pane td {
+  background-color: var(--color-tertiary);
 }

@@ -1,9 +1,9 @@
-// src/MarkdownEditor.js
 import React, { useState } from 'react';
 import ReactMarkdown from 'react-markdown';
 import { Light as SyntaxHighlighter } from 'react-syntax-highlighter';
 import { docco } from 'react-syntax-highlighter/dist/esm/styles/hljs';
 import Dropzone from 'react-dropzone';
+import { FaFileExport, FaFileImport } from 'react-icons/fa';
 import './MarkdownEditor.css'; // Add some basic styling
 
 const MarkdownEditor = () => {
@@ -32,46 +32,58 @@ const MarkdownEditor = () => {
 
   return (
     <div className="markdown-editor">
-      <div className="editor-pane">
-        <textarea
-          value={markdown}
-          onChange={handleMarkdownChange}
-          placeholder="Enter markdown here..."
-        />
-        <button onClick={handleExport}>Export</button>
-        <Dropzone onDrop={handleDrop}>
-          {({getRootProps, getInputProps}) => (
-            <div {...getRootProps()} className="dropzone">
-              <input {...getInputProps()} />
-              <p>Drag & drop a markdown file here, or click to select a file</p>
-            </div>
-          )}
-        </Dropzone>
+      <header className="header">
+        <h1>Markdown Editor</h1>
+      </header>
+      <div className="content">
+        <div className="editor-pane">
+          <textarea
+            value={markdown}
+            onChange={handleMarkdownChange}
+            placeholder="Enter markdown here..."
+          />
+          <div className="buttons">
+            <button onClick={handleExport}>
+              <FaFileExport /> Export
+            </button>
+            <Dropzone onDrop={handleDrop}>
+              {({getRootProps, getInputProps}) => (
+                <div {...getRootProps()} className="dropzone">
+                  <input {...getInputProps()} />
+                  <p><FaFileImport /> Drag & drop a markdown file here, or click to select a file</p>
+                </div>
+              )}
+            </Dropzone>
+          </div>
+        </div>
+        <div className="preview-pane">
+          <ReactMarkdown
+            children={markdown}
+            components={{
+              code({node, inline, className, children, ...props}) {
+                const match = /language-(\w+)/.exec(className || '')
+                return !inline && match ? (
+                  <SyntaxHighlighter
+                    style={docco}
+                    language={match[1]}
+                    PreTag="div"
+                    {...props}
+                  >
+                    {String(children).replace(/\n$/, '')}
+                  </SyntaxHighlighter>
+                ) : (
+                  <code className={className} {...props}>
+                    {children}
+                  </code>
+                )
+              }
+            }}
+          />
+        </div>
       </div>
-      <div className="preview-pane">
-        <ReactMarkdown
-          children={markdown}
-          components={{
-            code({node, inline, className, children, ...props}) {
-              const match = /language-(\w+)/.exec(className || '')
-              return !inline && match ? (
-                <SyntaxHighlighter
-                  style={docco}
-                  language={match[1]}
-                  PreTag="div"
-                  {...props}
-                >
-                  {String(children).replace(/\n$/, '')}
-                </SyntaxHighlighter>
-              ) : (
-                <code className={className} {...props}>
-                  {children}
-                </code>
-              )
-            }
-          }}
-        />
-      </div>
+      <footer className="footer">
+        <p>Markdown Editor © 2024</p>
+      </footer>
     </div>
   );
 };
