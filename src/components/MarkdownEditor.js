@@ -43,7 +43,7 @@ const MarkdownEditor = () => {
             onChange={handleMarkdownChange}
             placeholder="Enter markdown here..."
           />
-          <button onClick={handleExport}>Export</button>
+          <button onClick={handleExport}>Download MarkDown</button>
           <Dropzone onDrop={handleDrop}>
             {({getRootProps, getInputProps}) => (
               <div {...getRootProps()} className="dropzone">

@@ -1,33 +1,39 @@
-/* src/MarkdownEditor.css */
-
-:root {
-  --color-primary: #4a90e2;
-  --color-secondary: #357ab7;
-  --color-tertiary: #f5f5f5;
-  --color-accent: #e0e0e0;
-  --color-text: #333;
-  --color-background: #fff;
-}
-
+/* Reset default browser styles */
 * {
   box-sizing: border-box;
-}
-
-body, html {
   margin: 0;
   padding: 0;
+}
+
+/* CSS Variables */
+:root {
+  --color-primary: #4a90e2; /* Blue primary color */
+  --color-secondary: #357ab7; /* Darker shade of blue for secondary */
+  --color-tertiary: #f5f5f5; /* Light gray background */
+  --color-accent: #e0e0e0; /* Light gray accent */
+  --color-text: #333; /* Dark text color */
+  --color-background: #fff; /* White background */
+}
+
+/* Body styles */
+body {
   font-family: 'Roboto', sans-serif;
   background-color: var(--color-background);
   color: var(--color-text);
+  margin: 0;
+  padding: 0;
 }
 
+/* Markdown Editor container */
 .markdown-editor {
   display: flex;
   flex-direction: column;
   height: 100vh;
 }
 
-header, footer {
+/* Header and Footer */
+header,
+footer {
   text-align: center;
   padding: 20px;
   background-color: var(--color-primary);
@@ -50,31 +56,38 @@ footer p {
   font-size: 0.9em;
 }
 
+/* Editor and Preview panes container */
 .editor-container {
   display: flex;
   flex: 1;
   overflow: hidden;
 }
 
-.editor-pane, .preview-pane {
+/* Editor pane */
+.editor-pane {
   flex: 1;
   padding: 20px;
   overflow-y: auto;
-}
-
-.editor-pane {
   background-color: var(--color-tertiary);
+  text-align: left;
 }
 
+/* Preview pane */
 .preview-pane {
+  flex: 1;
+  padding: 20px;
+  overflow-y: auto;
   background-color: var(--color-background);
+  text-align: right;
 }
 
+/* Divider between editor and preview */
 .divider {
   width: 2px;
   background-color: var(--color-accent);
 }
 
+/* Textarea for markdown input */
 textarea {
   width: 100%;
   height: calc(100vh - 210px);
@@ -85,33 +98,33 @@ textarea {
   resize: none;
   background-color: var(--color-tertiary);
   color: var(--color-text);
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  transition: box-shadow 0.3s ease;
+  box-shadow: 0px 2px 2px 1px rgb(116, 116, 119);
 }
 
 textarea:focus {
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-  outline: none;
+  box-shadow: 0px 3px 3px 2px rgb(123, 136, 254);
+  outline: none; /* Remove default outline */
 }
 
+/* Button for exporting markdown */
 button {
   margin-top: 10px;
   padding: 10px 20px;
   font-size: 16px;
-  background-color: var(--color-primary);
+  background:linear-gradient(to top,rgb(0, 76, 255),rgb(146, 151, 248));
   color: #fff;
   border: none;
-  border-radius: 4px;
+  border-radius: 10px;
   cursor: pointer;
   transition: background-color 0.3s ease, box-shadow 0.3s ease;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 button:hover {
-  background-color: var(--color-secondary);
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 4px 8px rgb(0, 17, 255);
 }
 
+/* Dropzone area for file upload */
 .dropzone {
   border: 2px dashed var(--color-accent);
   padding: 20px;
@@ -136,8 +149,14 @@ button:hover {
   color: #888;
 }
 
-.preview-pane h1, .preview-pane h2, .preview-pane h3, .preview-pane h4, .preview-pane h5, .preview-pane h6 {
-  font-weight: bold;
+/* Markdown preview styles */
+.preview-pane h1,
+.preview-pane h2,
+.preview-pane h3,
+.preview-pane h4,
+.preview-pane h5,
+.preview-pane h6 {
+  text-align: right; /* Align headings to the right in preview pane */
   margin-top: 1.5em;
   margin-bottom: 0.5em;
   color: var(--color-primary);
@@ -167,7 +186,8 @@ button:hover {
   color: var(--color-text);
 }
 
-.preview-pane ul, .preview-pane ol {
+.preview-pane ul,
+.preview-pane ol {
   padding-left: 20px;
 }
 
@@ -176,7 +196,8 @@ button:hover {
   border-collapse: collapse;
 }
 
-.preview-pane th, .preview-pane td {
+.preview-pane th,
+.preview-pane td {
   padding: 10px;
   border: 1px solid var(--color-accent);
   text-align: left;
