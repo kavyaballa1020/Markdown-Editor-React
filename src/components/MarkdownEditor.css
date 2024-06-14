@@ -1,32 +1,96 @@
 /* src/MarkdownEditor.css */
+
+:root {
+  --color-primary: #007bff;
+  --color-secondary: #0056b3;
+  --color-tertiary: #f5f5f5;
+  --color-accent: #e0e0e0;
+  --color-text: #333;
+  --color-background: #fff;
+}
+
 .markdown-editor {
-    display: flex;
-    height: 100vh;
-  }
-  
-  .editor-pane, .preview-pane {
-    flex: 1;
-    padding: 20px;
-  }
-  
-  textarea {
-    width: 100%;
-    height: calc(100vh - 100px);
-    padding: 10px;
-    font-size: 16px;
-  }
-  
-  .dropzone {
-    border: 2px dashed #ccc;
-    padding: 20px;
-    text-align: center;
-    margin-top: 20px;
-  }
-  
-  button {
-    margin-top: 10px;
-    padding: 10px 20px;
-    font-size: 16px;
-    cursor: pointer;
-  }
-  
+  display: flex;
+  height: 100vh;
+  font-family: 'Roboto', sans-serif;
+  background-color: var(--color-background);
+}
+
+.editor-pane, .preview-pane {
+  flex: 1;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+.editor-pane {
+  background-color: var(--color-tertiary);
+  border-right: 1px solid var(--color-accent);
+}
+
+.preview-pane {
+  background-color: var(--color-background);
+  padding: 40px;
+}
+
+textarea {
+  width: 100%;
+  height: calc(100vh - 150px);
+  padding: 10px;
+  font-size: 16px;
+  border: 1px solid var(--color-accent);
+  border-radius: 4px;
+  resize: none;
+  background-color: var(--color-tertiary);
+  color: var(--color-text);
+}
+
+button {
+  margin-top: 10px;
+  padding: 10px 20px;
+  font-size: 16px;
+  background-color: var(--color-primary);
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+button:hover {
+  background-color: var(--color-secondary);
+}
+
+.dropzone {
+  border: 2px dashed var(--color-accent);
+  padding: 20px;
+  text-align: center;
+  margin-top: 20px;
+  border-radius: 4px;
+  background-color: var(--color-tertiary);
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.dropzone:hover {
+  background-color: var(--color-accent);
+}
+
+.dropzone p {
+  margin: 0;
+  color: #888;
+}
+
+.preview-pane h1, .preview-pane h2, .preview-pane h3, .preview-pane h4, .preview-pane h5, .preview-pane h6 {
+  font-weight: bold;
+  margin-top: 1.5em;
+  margin-bottom: 0.5em;
+  color: var(--color-primary);
+}
+
+.preview-pane pre {
+  background-color: var(--color-tertiary);
+  padding: 10px;
+  border-radius: 4px;
+  overflow-x: auto;
+  color: var(--color-text);
+}
