@@ -103,7 +103,7 @@ footer p {
 /* Textarea for markdown input */
 textarea {
   width: 100%;
-  height: calc(100vh - 210px);
+  height: 180px;
   padding: 10px;
   font-size: 16px;
   border: 1px solid var(--color-accent);
