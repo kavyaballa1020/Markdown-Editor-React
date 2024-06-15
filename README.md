@@ -20,7 +20,7 @@ To get started with the Markdown Editor, follow these steps:
 1. **Clone the repository:**
 
    ```bash
-   git clone https://github.com/yourusername/markdown-editor.git
+   git clone https://github.com/kavyaballa1020/Markdown-Editor-React.git
    cd markdown-editor
    ```
 
