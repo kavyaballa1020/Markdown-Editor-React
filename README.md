@@ -69,7 +69,3 @@ This project is licensed under the MIT License. See the [LICENSE](LICENSE) file 
 If you have any questions or feedback, please reach out to me at [your-email@example.com].
 
 ---
-
-*Happy coding!*
-```
-
