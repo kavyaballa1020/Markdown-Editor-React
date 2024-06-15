@@ -1,10 +1,9 @@
-// src/MarkdownEditor.js
 import React, { useState } from 'react';
 import ReactMarkdown from 'react-markdown';
 import { Light as SyntaxHighlighter } from 'react-syntax-highlighter';
 import { docco } from 'react-syntax-highlighter/dist/esm/styles/hljs';
 import Dropzone from 'react-dropzone';
-import './MarkdownEditor.css'; // Add some basic styling
+import './MarkdownEditor.css'; 
 
 const MarkdownEditor = () => {
   const [markdown, setMarkdown] = useState('');
