@@ -13,7 +13,7 @@
     "react-markdown": "^10.1.0",
     "react-scripts": "5.0.1",
     "react-syntax-highlighter": "^15.6.1",
-    "web-vitals": "^4.2.4"
+    "web-vitals": "^5.0.0"
   },
   "scripts": {
     "start": "react-scripts start",
